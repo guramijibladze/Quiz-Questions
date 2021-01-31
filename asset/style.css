@@ -1,0 +1,18 @@
+.container-fluid{
+    position: relative;
+    width: 100%;
+    /* height: 200px; */
+}
+
+.container-card{
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 10%;
+    width: 70%;
+    height: 600px;
+    background-color: rgb(223, 236, 240);
+}
+
+.quiz-title{
+    background-color: rgb(144, 143, 138);
+}
