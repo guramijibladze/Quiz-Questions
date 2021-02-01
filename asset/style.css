@@ -15,7 +15,7 @@ span, label, button, p {
     margin-left: 15%;
     margin-top: 10%;
     width: 70%;
-    height: 600px;
+    height: 650px;
     background-color: rgb(223, 236, 240);
 }
 
@@ -28,4 +28,41 @@ span, label, button, p {
     bottom: 0;
     width: 100%;
     background-color: rgb(130, 134, 129);
+}
+
+/* .progress-bar{
+    width: 0%;
+} */
+
+@media (max-width: 1090px) {
+    #button{
+        padding:2px 4px;
+        font-size:90%;
+        margin-top: -20px;
+        /* position: static; */
+    }
+
+    #name{
+        text-align: left!important;
+    }
+
+    /* .container-card{
+        height: 800px;
+    } */
+  }
+
+  @media (max-width: 807px) {
+        .container-card{
+            height: 800px;
+        }
+  }
+
+  @media (max-width: 473px) {
+    .container-card{
+        height: 850px;
+    }
+
+    .end-time{
+        display: none;
+    }
 }
