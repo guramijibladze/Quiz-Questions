@@ -65,6 +65,7 @@ const answer4 = document.getElementById('answer-4');
 const outOf = document.getElementById('out-of');
 const questionNumTitle = document.getElementById('question-num');
 const percent = document.querySelector('.progress-bar');
+// const time = document.getElementById('time');
 // console.log(questionArr[0]['question']);
 
 let questionNum = 0;
@@ -98,3 +99,38 @@ button.addEventListener('click', function(){
     answer3.innerHTML = questionArr[questionNum]['choices'][2];
     answer4.innerHTML = questionArr[questionNum]['choices'][3];
 });
+
+
+
+// timer
+let second  = 60;
+let minutes = 4;
+let y = 0;
+
+let x = setInterval(function(){
+    second -= 1;
+    if(second == 0){
+        y += 1;
+        minutes -= 1;
+        if( y < 4){
+            console.log(y);
+            second  = 60;
+        }else{
+            myStopFunction();
+        }  
+    }
+    
+    document.getElementById('time').innerHTML = minutes +":" + second;
+    
+},1000);
+
+// stop timer
+function myStopFunction() {
+    clearInterval(x);
+    Exhaustion();
+  }
+
+
+  function Exhaustion(){
+    console.log('დრო ამოიწურა');
+  }
