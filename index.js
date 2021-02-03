@@ -56,7 +56,6 @@ const questionArr = [
 ];
 
 
-
 const questionText = document.getElementById('question-text');
 const answer1 = document.getElementById('answer-1');
 const answer2 = document.getElementById('answer-2');
@@ -65,24 +64,38 @@ const answer4 = document.getElementById('answer-4');
 const outOf = document.getElementById('out-of');
 const questionNumTitle = document.getElementById('question-num');
 const percent = document.querySelector('.progress-bar');
+
+// checked answer
+const chocesAnswer = document.querySelectorAll('input[name="exampleRadios"]:checked');
+let colors = [];
+chocesAnswer.forEach((checkbox) => {
+    colors.push(checkbox.value);
+});
+// const chocesAnswer1 = document.getElementById("exampleRadios1");
+// const chocesAnswer2 = document.getElementById("exampleRadios2");
+// const chocesAnswer3 = document.getElementById("exampleRadios3");
+// let choicesArr = [chocesAnswer0.checked, chocesAnswer1, chocesAnswer2, chocesAnswer3]; 
+
 // const time = document.getElementById('time');
-// console.log(questionArr[0]['question']);
+
+
 
 let questionNum = 0;
 let outOfnum = 1;
 let pecentBar = 0;
-
 
 questionText.innerHTML = questionArr[questionNum]['question'];
 answer1.innerHTML = questionArr[questionNum]['choices'][0];
 answer2.innerHTML = questionArr[questionNum]['choices'][1];
 answer3.innerHTML = questionArr[questionNum]['choices'][2];
 answer4.innerHTML = questionArr[questionNum]['choices'][3];
-outOf.innerHTML = outOfnum;
 
+outOf.innerHTML = outOfnum;
 
 const button = document.getElementById('button');
 button.addEventListener('click', function(){
+    console.log(colors);
+
     questionNum += 1;
     outOfnum += 1;
     pecentBar += 10;
@@ -91,13 +104,15 @@ button.addEventListener('click', function(){
     questionNumTitle.innerHTML = outOfnum;
     percent.innerHTML = pecentBar + ' ' + '%';
     percent.style.width = pecentBar + "%";
-    // console.log(percent.style.width);
+    
 
     questionText.innerHTML =  questionArr[questionNum]['question'];
     answer1.innerHTML = questionArr[questionNum]['choices'][0];
     answer2.innerHTML = questionArr[questionNum]['choices'][1];
     answer3.innerHTML = questionArr[questionNum]['choices'][2];
     answer4.innerHTML = questionArr[questionNum]['choices'][3];
+
+
 });
 
 
