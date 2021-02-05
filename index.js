@@ -65,36 +65,45 @@ const outOf = document.getElementById('out-of');
 const questionNumTitle = document.getElementById('question-num');
 const percent = document.querySelector('.progress-bar');
 
-// checked answer
-const chocesAnswer = document.querySelectorAll('input[name="exampleRadios"]:checked');
-let colors = [];
-chocesAnswer.forEach((checkbox) => {
-    colors.push(checkbox.value);
-});
-// const chocesAnswer1 = document.getElementById("exampleRadios1");
-// const chocesAnswer2 = document.getElementById("exampleRadios2");
-// const chocesAnswer3 = document.getElementById("exampleRadios3");
-// let choicesArr = [chocesAnswer0.checked, chocesAnswer1, chocesAnswer2, chocesAnswer3]; 
-
-// const time = document.getElementById('time');
 
 
 
 let questionNum = 0;
 let outOfnum = 1;
-let pecentBar = 0;
+let pecentBar = 10;
+percent.innerHTML = pecentBar + ' ' + '%';
+percent.style.width = pecentBar + "%";
+let correctAnswer = 0
+let wrongAnswer = 0;
 
 questionText.innerHTML = questionArr[questionNum]['question'];
 answer1.innerHTML = questionArr[questionNum]['choices'][0];
 answer2.innerHTML = questionArr[questionNum]['choices'][1];
 answer3.innerHTML = questionArr[questionNum]['choices'][2];
 answer4.innerHTML = questionArr[questionNum]['choices'][3];
+answerQuestionArr = [answer1, answer2, answer3, answer4 ];
 
 outOf.innerHTML = outOfnum;
 
+
 const button = document.getElementById('button');
 button.addEventListener('click', function(){
-    console.log(colors);
+
+    // checked answer
+    const chocesAnswer = document.question.exampleRadios.value;
+    if(chocesAnswer == questionArr[questionNum]['corretAnswer']){
+        correctAnswer += 1;
+        console.log('correctAnswer');
+    }else{
+        wrongAnswer += 1;
+        // console.log('wrongAnswer')
+    }
+
+    if(outOfnum == 9){
+         console.log("gurami");
+    }else if(outOfnum == 10){
+        return console.log("yor correct answer is: " + correctAnswer);
+    }
 
     questionNum += 1;
     outOfnum += 1;
@@ -107,14 +116,11 @@ button.addEventListener('click', function(){
     
 
     questionText.innerHTML =  questionArr[questionNum]['question'];
-    answer1.innerHTML = questionArr[questionNum]['choices'][0];
-    answer2.innerHTML = questionArr[questionNum]['choices'][1];
-    answer3.innerHTML = questionArr[questionNum]['choices'][2];
-    answer4.innerHTML = questionArr[questionNum]['choices'][3];
-
+    for(let i = 0; i < answerQuestionArr.length; i++){
+        answerQuestionArr[i].innerHTML = questionArr[questionNum]['choices'][i];
+    } 
 
 });
-
 
 
 // timer
@@ -128,7 +134,6 @@ let x = setInterval(function(){
         y += 1;
         minutes -= 1;
         if( y < 4){
-            console.log(y);
             second  = 60;
         }else{
             myStopFunction();
