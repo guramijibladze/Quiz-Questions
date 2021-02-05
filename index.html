@@ -12,8 +12,25 @@
   </head>
   <body>
     
+    <div id="user" class=" container-fluid bg-primary " hidden>
+        <div class="user-content border rounded ">
+            <div class="content">
+                <div class="input-group text-center justify-content-center mt-3">
+                    <div class="input-group-prepend d-flex flex-column ">
+                        <label ><p class="font-weight-bolder text-monospace" style="margin-bottom : 0;">მომხმარებლის სახელი</p></label>
+                        <input id="user-name" type="text" aria-label="First name" class="form-control">
+                        <label><p class="mt-1 font-weight-bolder text-monospace" style="margin-bottom : 0;">მომხმარებლის გვარი</p></label>
+                        <input id="user-last-name" type="text" aria-label="Last name" class="form-control">
+                        <button id="start-button" class="btn btn-outline-primary border border-primary rounded mt-2">
+                            <p class="text-monospace" style="margin-bottom : 0;">ქვიზის დაწყება</p>
+                        </button>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="container-fluid bg-primary">
+    <div id="quiz" class="container-fluid bg-primary" hidden>
         <div class="container-card border rounded">
 
             <div class="quiz-title border rounded">
@@ -22,8 +39,8 @@
                         <span class="text-monospace"><b>შ ე კ ი თ ხ ვ ა </b></span><span id="question-num" class="font-weight-bolder">1</span>
                     </div>
                     <div class="div-title col-4 text-right mt-2 mb-2 ">
-                        <div id="name" class="border rounded border-info text-center">
-                            <span class="mr-5 font-weight-bolder text-monospace">გურამ ჯიბლაძე</span>
+                        <div  class="border rounded border-info text-center">
+                            <span id="name-lastname" class="mr-5 font-weight-bolder text-monospace"></span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +109,32 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div id="result" class=" container-fluid bg-primary " hidden>
+        <div class="container-content border rounded">
+            <div class="content">
+                <div class="user text-center border rounded bg-info mt-4">
+                    <p id="result-user" class="m-3 font-weight-bold bg-infor text-monospace "></p>
+                </div>
+                <div class="corect-answer text-center border rounded  bg-success ">
+                    <p id="sum-answer" class="m-3 font-weight-bold text-monospace"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="time-out" class=" container-fluid bg-primary " hidden>
+        <div class="time-out-container-content border rounded">
+            <div class="time-out-content">
+                <div class="user text-center border rounded bg-info mt-4">
+                    <p class="m-3 font-weight-bold bg-infor text-monospace ">გურამ ჯიბლაძე</p>
+                </div>
+                <div class="corect-answer text-center border rounded  bg-danger ">
+                    <p id="alert" class="m-3 font-weight-bold text-monospace"></p>
+                </div>
+            </div>
         </div>
     </div>
 

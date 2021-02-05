@@ -54,6 +54,10 @@ const questionArr = [
     },
    
 ];
+// window.alert("sometext");
+
+isHidden = HTMLElement.hidden;
+HTMLElement.hidden = true | false;
 
 
 const questionText = document.getElementById('question-text');
@@ -64,8 +68,23 @@ const answer4 = document.getElementById('answer-4');
 const outOf = document.getElementById('out-of');
 const questionNumTitle = document.getElementById('question-num');
 const percent = document.querySelector('.progress-bar');
+document.getElementById('quiz').hidden = true;
+document.getElementById('user').hidden = false;
 
-
+// registration area
+document.getElementById('start-button').addEventListener('click', function(){
+    var userName = document.getElementById('user-name');
+    var userLastname = document.getElementById('user-last-name');
+    if(userName.value === "" || userLastname.value === ""){
+        return alert("შეიყვანეთ სახელი და გვარი");
+    }else{
+        document.getElementById('user').hidden = true;
+        document.getElementById('quiz').hidden = false;
+        document.getElementById('name-lastname').innerHTML = userName.value + " " + userLastname.value;
+        timer();
+    }
+    document.getElementById('result-user').innerHTML = userName.value + " " + userLastname.value;
+});
 
 
 let questionNum = 0;
@@ -93,16 +112,15 @@ button.addEventListener('click', function(){
     const chocesAnswer = document.question.exampleRadios.value;
     if(chocesAnswer == questionArr[questionNum]['corretAnswer']){
         correctAnswer += 1;
-        console.log('correctAnswer');
+        // console.log('correctAnswer');
     }else{
         wrongAnswer += 1;
         // console.log('wrongAnswer')
     }
 
-    if(outOfnum == 9){
-         console.log("gurami");
-    }else if(outOfnum == 10){
-        return console.log("yor correct answer is: " + correctAnswer);
+    if(outOfnum == 10){
+        document.getElementById('quiz').hidden = true;
+        return yourResult(correctAnswer);
     }
 
     questionNum += 1;
@@ -124,33 +142,41 @@ button.addEventListener('click', function(){
 
 
 // timer
-let second  = 60;
-let minutes = 4;
-let y = 0;
+function timer(){
+    let second  = 60;
+    let minutes = 4;
+    let y = 0;
+    
+    let x = setInterval(function(){
+        if(second == 0){
+            y += 1;
+            if( y < 5){
+                second  = 60;
+            }else{
+                return myStopFunction(x);
+            }  
+            minutes -= 1;
+        }
+        second -= 1;
+        document.getElementById('time').innerHTML = minutes +":" + second;
+        
+    },1000);
+}
 
-let x = setInterval(function(){
-    second -= 1;
-    if(second == 0){
-        y += 1;
-        minutes -= 1;
-        if( y < 4){
-            second  = 60;
-        }else{
-            myStopFunction();
-        }  
-    }
-    
-    document.getElementById('time').innerHTML = minutes +":" + second;
-    
-},1000);
 
 // stop timer
-function myStopFunction() {
+function myStopFunction(x) {
     clearInterval(x);
-    Exhaustion();
+    document.getElementById('quiz').hidden = true;
+    document.getElementById('time-out').hidden = false;
+    document.getElementById('alert').innerHTML = "თქვენი დრო ამოიწურა, თქვენ სწორად უპასუხეთ: " + correctAnswer + "-ს 10-დან";
   }
 
 
-  function Exhaustion(){
-    console.log('დრო ამოიწურა');
+
+// Result
+  function yourResult(result){
+      document.getElementById("result").hidden= false;
+      
+      document.getElementById('sum-answer').innerHTML = "თქვენ სწორად უპასეუხეთ " + result + "-ს 10-დან";
   }
