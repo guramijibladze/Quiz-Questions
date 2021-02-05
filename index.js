@@ -84,6 +84,7 @@ document.getElementById('start-button').addEventListener('click', function(){
         timer();
     }
     document.getElementById('result-user').innerHTML = userName.value + " " + userLastname.value;
+    document.getElementById('user-time-out').innerHTML = userName.value + " " + userLastname.value;
 });
 
 
@@ -132,7 +133,6 @@ button.addEventListener('click', function(){
     percent.innerHTML = pecentBar + ' ' + '%';
     percent.style.width = pecentBar + "%";
     
-
     questionText.innerHTML =  questionArr[questionNum]['question'];
     for(let i = 0; i < answerQuestionArr.length; i++){
         answerQuestionArr[i].innerHTML = questionArr[questionNum]['choices'][i];
@@ -177,6 +177,5 @@ function myStopFunction(x) {
 // Result
   function yourResult(result){
       document.getElementById("result").hidden= false;
-      
       document.getElementById('sum-answer').innerHTML = "თქვენ სწორად უპასეუხეთ " + result + "-ს 10-დან";
   }
