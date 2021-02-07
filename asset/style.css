@@ -97,7 +97,7 @@ span, label, button, p {
 
   @media (max-width: 550px) {
     .container-card{
-        height: 840px;
+        height: 870px;
         font-size: small;
         /* width: 70%; */
     }
