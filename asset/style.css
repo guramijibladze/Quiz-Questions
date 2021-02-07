@@ -76,7 +76,18 @@ span, label, button, p {
         .container-card{
             height: 800px;
         }
-        #button{
+
+    #quiz-title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #name-lastname{
+        font-size: small;
+    }
+        
+    #button{
             padding:2px 4px;
             font-size:90%;
             margin-top: -20px;
@@ -88,7 +99,12 @@ span, label, button, p {
     .container-card{
         height: 800px;
         font-size: small;
+        /* width: 70%; */
     }
+    
+    /* #question1, .text-monospace{
+        text-s
+    } */
 
     .end-time{
         display: none;
