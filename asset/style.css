@@ -111,12 +111,31 @@ span, label, button, p {
     
     #button{
         position: absolute;
-        /* margin-right: 10px; */
+        margin-top: 0px;
         bottom: 60px;
         margin-left: -20%;
     }
 
     .end-time{
         display: none;
+    }
+}
+
+@media (max-width: 460px) {
+    .user-content{
+        position: absolute;
+        margin-left: 25%;
+        margin-top: 10%;
+        width: 40%;
+        height: 260px;
+        background-color: rgb(223, 236, 240);
+    }
+
+    #start-button{
+        margin-top: 20px!important;
+    }
+
+    #start-button, p{
+        font-size: small;
     }
 }
