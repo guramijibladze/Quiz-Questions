@@ -109,9 +109,12 @@ span, label, button, p {
         /* width: 70%; */
     }
     
-    /* #question1, .text-monospace{
-        text-s
-    } */
+    #button{
+        position: absolute;
+        /* margin-right: 10px; */
+        bottom: 60px;
+        margin-left: -20%;
+    }
 
     .end-time{
         display: none;
