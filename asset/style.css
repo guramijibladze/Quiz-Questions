@@ -56,6 +56,13 @@ span, label, button, p {
     background-color: rgb(130, 134, 129);
 }
 
+#button{
+    position: absolute;
+    /* margin-right: 10px; */
+    bottom: 60px;
+    margin-left: -10%;
+}
+
 /* .progress-bar{
     width: 0%;
 } */
